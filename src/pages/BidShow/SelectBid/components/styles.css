@@ -1,0 +1,8 @@
+.hovered{
+  color:#ffffff;
+  background:rgb(179, 216, 255);
+  border-radius:8px;
+}
+.nothovered{
+ color:'#606266'
+}

@@ -1,8 +1,7 @@
-import proxy from './proxy';
-
-export default {
-  hash:true,
-  routes:[
+import { Link } from 'react-router';
+import { Breadcrumb } from 'antd';
+import { router } from 'umi';
+const routers = [
     {
       path:'/',
       component:'../layout/BlankLayout',
@@ -31,40 +30,11 @@ export default {
                 {path:'detail/:id',component:'BidShow/BidDetail',breadcrumbName:'标书详情'},
                 {path:'list/:id',component:'BidShow/BidList',breadcrumbName:'标书列表'},
                 {path:'update',component:'BidUpdate',breadcrumbName:'标书上传'},
-                {path:'setting',component:'BidSetting',breadcrumbName:'知识库设置'},
-                {path:'search',component:'BidSearch',breadcrumbName:'全文检索'},
-                {
-                  component: '404',
-                },
+                {path:'setting',component:'BidSetting',breadcrumbName:'知识库设置'}
               ]
             },
             {
-              path:'template',
-              component:'TemplateMake'
-            },
-            {
-              path:'templateFix',
-              component:'TemplateFix'
-            },
-            {
-              path:'censor',
-              component:'Censor'
-            },
-            {
-              path:'task',
-              component:'Task'
-            },
-            {
-              name: '500',
-              icon: 'smile',
-              path: '/exception/500',
-              component: '500',
-            },
-            {
-              name: '403',
-              icon: 'smile',
-              path: '/exception/403',
-              component: '403',
+              component: '404',
             },
           ]
         }
@@ -73,11 +43,16 @@ export default {
     {
       component: '404',
     },
-  ],
-  plugins: [
-    ['umi-plugin-react', {
-      antd:true
-    }],
-  ],
-  proxy:proxy['dev']
-};
+  ]
+
+export default routes
+  // function itemRender(route, params, routes, paths) {
+  //   const last = routes.indexOf(route) === routes.length - 1;
+  //   return last ? (
+  //     <span>{route.breadcrumbName}</span>
+  //   ) : (
+  //     <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+  //   );
+  // }
+  
+  // return <Breadcrumb itemRender={itemRender} routes={routes} />;
