@@ -1,7 +1,12 @@
-import request from 'umi-request'
+import {request} from '@/services/common';
+
 export async function fakeSubmitForm(params) {
-  return request('/api/forms', {
-    method: 'POST',
+  return request.post('/api/forms', {
     data: params,
+  });
+}
+export const getTemplate = (params) => {
+  return request.get('/parameter/cloudTemplate', {
+    params: params
   });
 }

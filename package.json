@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "umi dev",
-    "build": "umi build"
+    "build": "umi build",
+    "analyze": "ANALYZE=1 umi build"
   },
   "keywords": [],
   "author": "",
@@ -16,14 +17,18 @@
     "umi-plugin-react": "^1.7.2"
   },
   "dependencies": {
+    "@ant-design/charts": "^0.9.13",
     "@ant-design/icons": "^4.1.0",
     "@types/history": "^4.7.5",
     "@types/lodash": "^4.14.150",
+    "ant-design-pro": "^2.3.2",
     "bizcharts": "^4.0.2",
     "classnames": "^2.2.6",
     "dva": "^2.4.1",
     "echarts": "^4.7.0",
     "echarts-for-react": "^2.0.15-beta.1",
+    "fetch-mock": "^9.7.0",
+    "mockjs": "^1.1.0",
     "pdf2json": "^1.2.0",
     "react-helmet": "^6.0.0",
     "react-pdf": "^4.1.0",

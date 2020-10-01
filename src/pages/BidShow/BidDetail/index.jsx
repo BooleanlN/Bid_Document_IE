@@ -4,7 +4,7 @@ class BidDetail extends React.Component{
   render(){
     return (
       <div style={{width:'50%',margin:'0 auto'}}>
-        <DocumentShow/>
+        <DocumentShow filename={this.props.match.params.id}/>
       </div>
     )
   }

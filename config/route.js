@@ -4,40 +4,39 @@ import { router } from 'umi';
 const routers = [
     {
       path:'/',
-      component:'../layout/BlankLayout',
+      component:'../layout/BasicLayout',
       routes:[
         {
           path:'/',
-          component:'../layout/BasicLayout',
-          // redirect:'/dashboard/analysis',
-          routes:[
-            {
-              path:'/',
-              redirect:'/dashboard/analysis'
-            },
-            {
-              path:'/dashboard',
-              routes: [
-                { path:'/dashboard/analysis',component:'Dashboard/Analysis'},
-                { path: '/dashboard/monitor', component: 'Dashboard/Monitor' },
-                { path: '/dashboard/workplace', component: 'Dashboard/Workplace' }
-              ]
-            },
-            {
-              path:'bid',
-              routes:[
-                {path:'select',component:'BidShow/SelectBid',breadcrumbName:'标的物'},
-                {path:'detail/:id',component:'BidShow/BidDetail',breadcrumbName:'标书详情'},
-                {path:'list/:id',component:'BidShow/BidList',breadcrumbName:'标书列表'},
-                {path:'update',component:'BidUpdate',breadcrumbName:'标书上传'},
-                {path:'setting',component:'BidSetting',breadcrumbName:'知识库设置'}
-              ]
-            },
-            {
-              component: '404',
-            },
+          redirect:'/dashboard/analysis'
+        },
+        {
+          path:'/dashboard',
+          routes: [
+            { path:'/dashboard/analysis',component:'Dashboard/Analysis'},
+            { path: '/dashboard/monitor', component: 'Dashboard/Monitor' },
+            { path: '/dashboard/workplace', component: 'Dashboard/Workplace' }
           ]
-        }
+        },
+        {
+          path:'bid',
+          routes:[
+            {path:'select',component:'BidShow/SelectBid',breadcrumbName:'标的物'},
+            {path:'detail/:id',component:'BidShow/BidDetail',breadcrumbName:'标书详情'},
+            {path:'list/:id',component:'BidShow/BidList',breadcrumbName:'标书列表'},
+            {path:'update',component:'BidUpdate',breadcrumbName:'标书上传'},
+            {path:'setting',component:'BidSetting',breadcrumbName:'知识库设置'}
+          ]
+        },
+        {
+          path: 'appmng',
+          routes: [
+            {path:'', component: 'MyApp',breadcrumbName:'App管理'}
+          ]
+        },
+        {
+          component: '404',
+        },
       ]
     },
     {

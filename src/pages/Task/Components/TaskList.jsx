@@ -1,28 +1,6 @@
 import React from 'react';
 import {List} from 'antd'
 
-const data = [
-  {
-    id: '30403943',
-    type:'bid',
-    createTime:'2019-01-01',
-  },
-  {
-    id: '30403943',
-    type:'bid',
-    createTime:'2019-01-01',
-  },
-  {
-    id: '30403943',
-    type:'bid',
-    createTime:'2019-01-01',
-  },
-  {
-    id: '30403943',
-    type:'bid',
-    createTime:'2019-01-01',
-  },
-]
 class TaskList extends React.Component{
   constructor(props){
     super(props)
@@ -38,7 +16,7 @@ class TaskList extends React.Component{
       </List.Item>
     )
     return (
-        <List itemLayout="horizontal"  dataSource={data} renderItem = {getListItem} > 
+        <List itemLayout="horizontal"  dataSource={this.props.data} renderItem = {getListItem} > 
 
         </List>
     )

@@ -10,6 +10,45 @@ const Info = ({ title, value, bordered }) => (
     {bordered && <em />}
   </div>
 );
+const data = [
+  {
+    id: '30403943',
+    type:'bid',
+    createTime:'2020-07-09',
+  },
+  {
+    id: '30407351',
+    type:'bid',
+    createTime:'2020-07-09',
+  },
+  {
+    id: '30407353',
+    type:'bid',
+    createTime:'2020-08-01',
+  },
+  {
+    id: '30407356',
+    type:'bid',
+    createTime:'2020-08-01',
+  },
+];
+const finishData = [
+  {
+    id: '3040232',
+    type:'bid',
+    createTime:'2020-07-10',
+  },
+  {
+    id: '30407350',
+    type:'bid',
+    createTime:'2020-08-01',
+  },
+  {
+    id: '30407355',
+    type:'bid',
+    createTime:'2020-08-01',
+  },
+]
 const {TabPane} = Tabs;
 class Task extends React.Component{
   state = {
@@ -31,10 +70,10 @@ class Task extends React.Component{
       <div>
         <Card bordered={false}>
           <Col sm={12} xs={24}>
-            <Info title="待审核" value="2个任务" bordered />
+            <Info title="待审核" value="4个任务" bordered />
           </Col>
           <Col sm={12} xs={24}>
-            <Info title="已完成" value="8个任务" bordered />
+            <Info title="已完成" value="3个任务" bordered />
           </Col>
         </Card>
       </div>
@@ -46,12 +85,12 @@ class Task extends React.Component{
         <Tabs defaultActiveKey="1" size="small" style={{ marginBottom: 32 }}>
             <TabPane tab="待审核" key="1">
             <Skeleton loading={this.state.loading} >
-                <TaskList/>
+                <TaskList data={data}/>
             </Skeleton> 
             </TabPane>
             <TabPane tab="已完成" key="2">
               <Skeleton loading={this.state.loading} >
-                <TaskList/>
+                <TaskList data={finishData}/>
             </Skeleton> 
             </TabPane>
         </Tabs>

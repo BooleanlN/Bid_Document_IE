@@ -1,27 +1,34 @@
-import React , { useState, useEffect }from 'react'
-import Step1 from './Components/Step1'
-import Step2 from './Components/Step2'
-import Step3 from './Components/Step3'
-import styles from './style.less'
-import { Card, Steps,Button } from 'antd';
-import {connect} from 'dva'
-
+import React from 'react';
+import Step1 from './Components/Step1';
+import Step2 from './Components/Step2';
+import Step3 from './Components/Step3';
+import styles from './style.less';
+import { Steps,Button } from 'antd';
+import {getTemplate} from './service';
 const { Step } = Steps;
-const steps = [
-  {title:'选取模版',index:0,component:<Step1/>},
-  {title:'模版填充',index:1,component:<Step2/>},
-  {title:'生成标书',index:2,component:<Step3/>}
-]
+
 class TemplateMake extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      current:0
+      current:0,
+      dataSource:{},
+      bidType: ''
     }
     this.handleNext = this.handleNext.bind(this)
     this.handlePrev = this.handlePrev.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleReset = this.handleReset.bind(this)
+    this.setOption = this.setOption.bind(this)
+  }
+  setOption = async (value, selectedOptions) => {
+    this.setState({
+      bidType: value
+    });
+    const res = await getTemplate({main_category: value[0],sub_category: value[1],detail_category: value[2]});
+    this.setState({
+      dataSource: res.data
+    });
   }
   handleNext(){
     this.setState({
@@ -48,7 +55,12 @@ class TemplateMake extends React.Component{
     })
   }
   render(){
-    const {current} = this.state
+    const {current,dataSource,bidType} = this.state
+    const steps = [
+      {title:'选取模版',index:0,component:<Step1 setOption={this.setOption} bidType={bidType}/>},
+      {title:'模版填充',index:1,component:<Step2 dataSource={dataSource}/>},
+      {title:'生成标书',index:2,component:<Step3 dataSource={dataSource}/>}
+    ]
     let operations;
     if(current === 0){
      operations = (

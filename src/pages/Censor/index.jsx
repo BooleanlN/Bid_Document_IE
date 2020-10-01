@@ -10,6 +10,40 @@ const Info = ({ title, value, bordered }) => (
     {bordered && <em />}
   </div>
 );
+const data = [
+  {
+    id: '30797877',
+    type:'bid',
+    createTime:'2020-07-09',
+  },
+  {
+    id: '30797876',
+    type:'bid',
+    createTime:'2020-07-09',
+  },
+  {
+    id: '30797878',
+    type:'bid',
+    createTime:'2020-08-01',
+  },
+  {
+    id: '30797879',
+    type:'bid',
+    createTime:'2020-08-01',
+  },
+];
+const finishData = [
+  {
+    id: '30797875',
+    type:'bid',
+    createTime:'2020-07-10',
+  },
+  {
+    id: '30797874',
+    type:'bid',
+    createTime:'2020-08-01',
+  }
+]
 const {TabPane} = Tabs;
 class Censor extends React.Component{
   state = {
@@ -31,10 +65,10 @@ class Censor extends React.Component{
       <div>
         <Card bordered={false}>
           <Col sm={12} xs={24}>
-            <Info title="我的待办" value="2个任务" bordered />
+            <Info title="我的待办" value="4个任务" bordered />
           </Col>
           <Col sm={12} xs={24}>
-            <Info title="已完成" value="8个任务" bordered />
+            <Info title="已完成" value="2个任务" bordered />
           </Col>
         </Card>
       </div>
@@ -46,12 +80,12 @@ class Censor extends React.Component{
         <Tabs defaultActiveKey="1" size="small" style={{ marginBottom: 32 }}>
             <TabPane tab="我的待办" key="1">
             <Skeleton loading={this.state.loading} >
-                <CensorList/>
+                <CensorList data={data}/>
             </Skeleton> 
             </TabPane>
             <TabPane tab="已完成" key="2">
               <Skeleton loading={this.state.loading} >
-                <CensorList/>
+                <CensorList data={finishData}/>
             </Skeleton> 
             </TabPane>
         </Tabs>

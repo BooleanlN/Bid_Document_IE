@@ -1,3 +1,7 @@
 node_modules
-dist
-.umi
+.DS_Store
+.vscode
+src/pages/.DS_Store
+src/.DS_Store
+src/.umi/
+src/pages/.umi/

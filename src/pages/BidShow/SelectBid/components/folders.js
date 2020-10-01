@@ -4,14 +4,6 @@ import folder_close from '@/assets/imgs/folder-close.png'
 import folder_open from '@/assets/imgs/folder-open.png'
 import styles from './styles.css'
 import router from 'umi/router';
-// const hovered = {
-//   color:'#ffffff',
-//   background:'rgb(179, 216, 255)',
-//   borderRadius:'8px'
-// }
-// const nothover = {
-//  color:'#606266'
-// }
 class Folders extends Component{
   constructor(props){
     super(props)
@@ -55,7 +47,7 @@ class FolderItem extends Component{
     })
   }
   handleClick(){
-    router.push(`/bid/list/${this.props.folder.id}`)
+    router.push(`/main/bid/list/${this.props.folder.id}`)
   }
   render(){
     return (

@@ -1,23 +1,19 @@
 import React from 'react'
 import UploadBid from './Components/UploadBid'
-import HeaderInfo from './Components/HeaderInfo'
+// import HeaderInfo from './Components/HeaderInfo'
 import BlankLayout from '@/layout/BlankLayout'
+import BidInfoTable from './Components/BidInfoTable'
 class BidUpdate extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      bidTypes:[
-        {value:'coal_miner',label:'采煤机'}
-      ]
-    }
   }
   render(){
     return (
       <BlankLayout>
-        <div style={{marginBottom:'20px'}}>
-          <HeaderInfo bidTypes={this.state.bidTypes}/>
+        <UploadBid/>
+        <div style={{marginTop:'20px'}}>
+          <BidInfoTable/>
         </div>
-      <UploadBid/>
       </BlankLayout>
     )
   }

@@ -38,7 +38,7 @@ class CensorList extends React.Component{
       </List.Item>
     )
     return (
-        <List itemLayout="horizontal"  dataSource={data} renderItem = {getListItem} > 
+        <List itemLayout="horizontal"  dataSource={this.props.data} renderItem = {getListItem} > 
 
         </List>
     )
